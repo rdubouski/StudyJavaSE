@@ -5,7 +5,7 @@
 
 package chapter1;
 
-public class Task9 {
+public class Task09 {
     public static void main(String[] args) {
 
         double earthweight, moonweight;
