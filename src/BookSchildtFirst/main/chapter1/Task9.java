@@ -1,12 +1,17 @@
+/*
+Сила тяжести на Луне составляет около 17% земной.
+Напиши программу, которая вычислила бы ваш вес на Луне.
+*/
+
 package chapter1;
 
 public class Task9 {
     public static void main(String[] args) {
 
-        double weight, weightomoon;
+        double earthweight, moonweight;
 
-        weight = 115;
-        weightomoon = weight * 0.17;
-        System.out.println(weight + " weight in earth = " + weightomoon + " weight in moon");
+        earthweight = 115;
+        moonweight = earthweight * 0.17;
+        System.out.println(earthweight + " weight on earth = " + moonweight + " weight on the moon");
     }
 }
