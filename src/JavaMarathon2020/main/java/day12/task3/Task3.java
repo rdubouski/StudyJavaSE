@@ -1,6 +1,8 @@
 package day12.task3;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class Task3 {
@@ -30,6 +32,10 @@ public class Task3 {
 
         System.out.println(musicBands);
 
+        Collections.shuffle(musicBands);
+
+        System.out.println(musicBands);
+
         System.out.println(groupsAfter2000(musicBands));
 
     }
@@ -37,7 +43,7 @@ public class Task3 {
     public static List<MusicBand> groupsAfter2000(List<MusicBand> bands) {
         List<MusicBand> bandList = new ArrayList<>();
         for (MusicBand mb : bands) {
-            if (mb.getYear() >= 2000) {
+            if (mb.getYear() > 2000) {
                 bandList.add(mb);
             }
         }
