@@ -22,6 +22,7 @@ public class Task1 {
                 }
             }
             pw.close();
+            scanner.close();
 
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден");
