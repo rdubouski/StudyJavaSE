@@ -15,7 +15,7 @@ class Day13MessageDatabaseTest extends AbstractTest {
     }
 
     @Test
-    void addNewMessage() {
+    void sendMessage() {
         User a = new User("a");
         User b = new User("b");
         MessageDatabase.sendMessage(a, b, "hi");
