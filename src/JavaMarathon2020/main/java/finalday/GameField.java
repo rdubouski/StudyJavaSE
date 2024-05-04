@@ -70,6 +70,7 @@ public class GameField {
 
         while (!check) {
             int i = 0, j = 0;
+            boolean checkCorrect = true;
             System.out.println("Введи координаты четырехпалубного корабля (от 0 до 9) (формат: x,y;x,y;x,y;x,y)");
             scanner = new Scanner(System.in);
             line = scanner.nextLine();
@@ -79,16 +80,22 @@ public class GameField {
             }
             coordinateAll = line.split(";");
             for (String string : coordinateAll) {
-                coordinates[i][j] = Integer.parseInt(String.valueOf(string.charAt(0)));
-                coordinates[i][j + 1] = Integer.parseInt(String.valueOf(string.charAt(2)));
-                i++;
+                if ((!Character.isDigit(string.charAt(0))) || (!Character.isDigit(string.charAt(2)))) {
+                    System.out.println("Неверные координаты!");
+                    checkCorrect = false;
+                }
+                if (checkCorrect) {
+                    coordinates[i][j] = Integer.parseInt(String.valueOf(string.charAt(0)));
+                    coordinates[i][j + 1] = Integer.parseInt(String.valueOf(string.charAt(2)));
+                    i++;
+                }
             }
-
-            for (i = 0; i < 4; i++) {
-                this.printCoordinate(coordinates[i][0], coordinates[i][1], "o");
+            if (checkCorrect) {
+                for (i = 0; i < 4; i++) {
+                    this.printCoordinate(coordinates[i][0], coordinates[i][1], "o");
+                }
+                check = true;
             }
-
-            check = true;
         }
     }
 
