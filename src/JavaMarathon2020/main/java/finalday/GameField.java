@@ -74,12 +74,14 @@ public class GameField {
             System.out.println("Введи координаты четырехпалубного корабля (от 0 до 9) (формат: x,y;x,y;x,y;x,y)");
             scanner = new Scanner(System.in);
             line = scanner.nextLine();
+            // Проверка на количество координат #3 q1
             if (line.length() != 15) {
                 System.out.println("Неверное количество координат!");
                 continue;
             }
             coordinateAll = line.split(";");
             for (String string : coordinateAll) {
+                // Проверка на корректность координат #3 q2
                 if ((!Character.isDigit(string.charAt(0))) || (!Character.isDigit(string.charAt(2)))) {
                     System.out.println("Неверные координаты!");
                     checkCorrect = false;
