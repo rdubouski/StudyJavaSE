@@ -81,6 +81,9 @@ public class GameField {
             }
             coordinateAll = line.split(";");
             for (String string : coordinateAll) {
+
+            }
+            for (String string : coordinateAll) {
                 // Проверка на корректность координат #3 q2
                 if ((!Character.isDigit(string.charAt(0))) || (!Character.isDigit(string.charAt(2)))) {
                     System.out.println("Неверные координаты!");
@@ -90,6 +93,22 @@ public class GameField {
                     coordinates[i][j] = Integer.parseInt(String.valueOf(string.charAt(0)));
                     coordinates[i][j + 1] = Integer.parseInt(String.valueOf(string.charAt(2)));
                     i++;
+                }
+            }
+            // Проверка на валидность координат #3 q3
+            if (coordinates[0][0] == coordinates[1][0] && coordinates[0][0] == coordinates[2][0] && coordinates[0][0] == coordinates[3][0]) {
+                if (coordinates[0][1] == coordinates[1][1] - 1 && coordinates[0][1] == coordinates[2][1] - 2 && coordinates[0][1] == coordinates[3][1] - 3) {
+                    checkCorrect = true;
+                } else {
+                    System.out.println("Не валидные координаты! Координаты должны быть последовательные!");
+                    checkCorrect = false;
+                }
+            } else if (coordinates[0][1] == coordinates[1][1] && coordinates[0][1] == coordinates[2][1] && coordinates[0][1] == coordinates[3][1]) {
+                if (coordinates[0][0] == coordinates[1][0] - 1 && coordinates[0][0] == coordinates[2][0] - 2 && coordinates[0][0] == coordinates[3][0] - 3) {
+                    checkCorrect = true;
+                } else {
+                    System.out.println("Не валидные координаты! Координаты должны быть последовательные!");
+                    checkCorrect = false;
                 }
             }
             if (checkCorrect) {
