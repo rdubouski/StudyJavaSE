@@ -1,5 +1,6 @@
 package finalday;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class SeaBattle {
@@ -8,9 +9,9 @@ public class SeaBattle {
         Scanner scanner = new Scanner(System.in);
         String player1 = scanner.nextLine();
         GameField gameField1 = new GameField(player1);
-        gameField1.printField(player1);
+        gameField1.printMyField();
         System.out.println("Начнем расставлять корабли на поле " + player1 + ". Другой игрок не смотри!");
-        gameField1.place4Ship();
+        /*gameField1.place4Ship();
         gameField1.printField(player1);
         gameField1.place3Ship();
         gameField1.printField(player1);
@@ -27,16 +28,16 @@ public class SeaBattle {
         gameField1.place1Ship();
         gameField1.printField(player1);
         gameField1.place1Ship();
-        gameField1.printField(player1);
+        gameField1.printField(player1);*/
         gameField1.place1Ship();
-        gameField1.printField(player1);
+        gameField1.printMyField();
 
         System.out.print("\033[H\033[J");
         System.out.print("Введите имя второго игрока: ");
         scanner = new Scanner(System.in);
         String player2 = scanner.nextLine();
         GameField gameField2 = new GameField(player2);
-        gameField2.printField(player2);
+        gameField2.printMyField();
         System.out.println("Начнем расставлять корабли на поле " + player2 + ". Другой игрок не смотри!");
         /*gameField2.place4Ship();
         gameField2.printField(player2);
@@ -55,12 +56,18 @@ public class SeaBattle {
         gameField2.place1Ship();
         gameField2.printField(player2);
         gameField2.place1Ship();
-        gameField2.printField(player2);
-        gameField2.place1Ship();
         gameField2.printField(player2);*/
+        gameField2.place1Ship();
+        gameField2.printMyField();
         System.out.print("\033[H\033[J");
 
-        gameField1.printField(player1);
-        gameField2.printField(player2);
+
+        Random random = new Random();
+        int ap = random.nextInt(2);
+        if (ap == 0) {
+            GameField.battle(gameField1, gameField2);
+        } else {
+            GameField.battle(gameField2, gameField1);
+        }
     }
 }

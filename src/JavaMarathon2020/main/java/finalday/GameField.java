@@ -39,8 +39,8 @@ public class GameField {
         this.enemyfield = DEFAULTFIELDENEMY;
     }
 
-    public void printField(String name) {
-        System.out.println("Поле игрока " + name);
+    public void printMyField() {
+        System.out.println("Поле игрока " + this.name);
         System.out.println("  0123456789");
         for (int i = 0; i < 10; i++) {
             System.out.print(i + " ");
@@ -49,13 +49,25 @@ public class GameField {
             }
             System.out.println();
         }
+    }
 
-        System.out.println("Поле врага");
+    public static void printField(GameField player1, GameField player2) {
+        System.out.println("Поле для атак игрока " + player1.name);
         System.out.println("  0123456789");
         for (int i = 0; i < 10; i++) {
             System.out.print(i + " ");
             for (int j = 0; j < 10; j++) {
-                System.out.print(this.enemyfield[i][j]);
+                System.out.print(player1.enemyfield[i][j]);
+            }
+            System.out.println();
+        }
+
+        System.out.println("Поле для атак игрока " + player2.name);
+        System.out.println("  0123456789");
+        for (int i = 0; i < 10; i++) {
+            System.out.print(i + " ");
+            for (int j = 0; j < 10; j++) {
+                System.out.print(player2.enemyfield[i][j]);
             }
             System.out.println();
         }
@@ -412,5 +424,11 @@ public class GameField {
                 i++;
             }
         }
+    }
+
+    public static void battle (GameField player1, GameField player2) {
+        GameField current;
+        current = player1;
+        printField(current, player2);
     }
 }
